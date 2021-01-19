@@ -25,7 +25,7 @@ class _StreamHandlerWrapper:
 
 def _get_handlers(
     logger: logging.Logger,
-) -> t.Generator[t.Tuple[t.List[logging.Handler], logging.Handler, int], None, None]:
+) -> t.Generator[t.Tuple[int, logging.Handler, t.List[logging.Handler]], None, None]:
     while logger:
         for i, handler in enumerate(logger.handlers):
             yield i, handler, logger.handlers
