@@ -17,8 +17,11 @@ class _StreamHandlerWrapper:
         return getattr(self.handler, item)
 
     def emit(self, record: logging.LogRecord) -> None:
-        msg = self.handler.format(record)
-        self.stream.write(msg, file=self.handler.stream)
+        if isinstance(self.handler, _StreamHandlerWrapper):
+            self.handler.emit(record)
+        else:
+            msg = self.handler.format(record)
+            self.stream.write(msg, file=self.handler.stream)
 
     handle = logging.Handler.handle
 
