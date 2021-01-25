@@ -35,6 +35,16 @@ def _get_handlers(
         logger = logger.parent if logger.propagate else None
 
 
+def _is_tty_stream_handler(handler: logging.Handler) -> bool:
+    if isinstance(handler, _StreamHandlerWrapper):
+        return _is_tty_stream_handler(handler.handler)
+    return (
+        hasattr(handler, "stream")
+        and hasattr(handler.stream, "isatty")
+        and handler.stream.isatty()
+    )
+
+
 @contextlib.contextmanager
 def wrap_logging_for_tqdm(
     tqdm_iter: "tqdm.tqdm",
@@ -48,11 +58,7 @@ def wrap_logging_for_tqdm(
     """
 
     for i, handler, handlers in _get_handlers(logger):
-        if (
-            hasattr(handler, "stream")
-            and hasattr(handler.stream, "isatty")
-            and handler.stream.isatty()
-        ):
+        if _is_tty_stream_handler(handler):
             handlers[i] = _StreamHandlerWrapper(handler, tqdm_iter)
     try:
         yield
