@@ -45,7 +45,11 @@ def wrap_logging_for_tqdm(
     """
 
     for i, handler, handlers in _get_handlers(logger):
-        if hasattr(handler, "stream"):
+        if (
+            hasattr(handler, "stream")
+            and hasattr(handler.stream, "isatty")
+            and handler.stream.isatty()
+        ):
             handlers[i] = _StreamHandlerWrapper(handler, tqdm_iter)
     try:
         yield
