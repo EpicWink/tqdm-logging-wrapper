@@ -1,4 +1,20 @@
-"""Wrap standard-library logging to support TQDM progress-bars."""
+"""Wrap standard-library logging to support TQDM progress-bars.
+
+Examples:
+    >>> import logging
+    >>> import tqdm
+    >>>
+    >>> logger = logging.getLogger(__name__)
+    >>> logging.basicConfig(level=logging.INFO)
+    >>>
+    >>> items = [1, 2, 3]
+    >>> items_iter = tqdm.tqdm(items)
+    >>> logger.info(f"Items: {items}")
+    >>> with wrap_logging_for_tqdm(items_iter), items_iter:
+    ...     for item in items_iter:
+    ...         logger.info(f"Item: {item}")
+    >>> logger.info(f"Items: {items}")
+"""
 
 import logging
 import contextlib
