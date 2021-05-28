@@ -80,5 +80,8 @@ def wrap_logging_for_tqdm(
         yield
     finally:
         for i, handler, handlers in _get_handlers(logger):
-            if isinstance(handler, _StreamHandlerWrapper):
+            if (
+                isinstance(handler, _StreamHandlerWrapper)
+                and handler.stream is tqdm_iter
+            ):
                 handlers[i] = handler.handler
