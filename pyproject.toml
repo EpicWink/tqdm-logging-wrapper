@@ -1,8 +1,29 @@
 [build-system]
 build-backend = "setuptools.build_meta"
 requires = [
-    "setuptools >= 42",
+    "setuptools >= 61.0",
     "setuptools-scm[toml] >= 3.4",
 ]
+
+[project]
+name = "tqdm-logging-wrapper"
+
+authors = [
+    { name = "Laurie O", email = "laurie_opperman@hotmail.com" },
+]
+description = "Wrap standard-library logging to support TQDM progress-bars."
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = "~= 3.6"
+
+dynamic = ["version"]
+
+[project.urls]
+Repository = "https://github.com/EpicWink/tqdm-logging-wrapper"
+
+[tool.setuptools]
+include-package-data = false
+package-dir = { "" = "src" }
+py-modules = ["tqdm_logging_wrapper"]
 
 [tool.setuptools_scm]
