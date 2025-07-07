@@ -1,5 +1,5 @@
 # TQDM logging wrapper
-Wrap standard-library logging to support TQDM progress-bars.
+Wrap standard-library logging so it won't interrupt TQDM progress-bars.
 
 ## Installation
 ```bash
