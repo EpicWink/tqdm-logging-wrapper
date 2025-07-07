@@ -11,7 +11,17 @@ name = "tqdm-logging-wrapper"
 authors = [
     { name = "Laurie O", email = "laurie_opperman@hotmail.com" },
 ]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Software Development",
+    "Typing :: Typed",
+]
 description = "Wrap standard-library logging to support TQDM progress-bars."
+keywords = ["tqdm", "logging"]
 license = { text = "MIT" }
 readme = "README.md"
 requires-python = "~= 3.6"
