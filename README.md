@@ -24,3 +24,7 @@ with tqdm_logging_wrapper.wrap_logging_for_tqdm(items_iter), items_iter:
         logger.info(f"Item: {item}")
 logger.info(f"Items: {items}")
 ```
+
+## Alternatives
+
+* [`tqdm.contrib.logging`](https://tqdm.github.io/docs/contrib.logging/)
