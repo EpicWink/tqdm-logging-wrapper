@@ -1,7 +1,7 @@
 [build-system]
 build-backend = "setuptools.build_meta"
 requires = [
-    "setuptools >= 61.0",
+    "setuptools >= 77.0",
     "setuptools-scm[toml] >= 3.4",
 ]
 
@@ -22,7 +22,7 @@ classifiers = [
 ]
 description = "Wrap standard-library logging to support TQDM progress-bars."
 keywords = ["tqdm", "logging"]
-license = { text = "MIT" }
+license = "MIT"
 readme = "README.md"
 requires-python = "~= 3.6"
 
