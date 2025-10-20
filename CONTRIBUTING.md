@@ -2,12 +2,6 @@
 Thanks for wanting to help out!
 
 ## Development environment set-up
-Create a new `setup.py`:
-```python
-from setuptools import setup
-
-setup()
-```
 
 Install package
 ```bash
